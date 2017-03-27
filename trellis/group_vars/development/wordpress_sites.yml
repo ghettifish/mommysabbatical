@@ -1,0 +1,19 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  mommysabbatical.com:
+    site_hosts:
+      - canonical: mommysabbatical.dev
+        redirects:
+          - www.mommysabbatical.dev
+    local_path: ../mommysabbatical.com # path targeting local Bedrock site directory (relative to Ansible root)
+    admin_email: admin@ghettifish.com
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false
